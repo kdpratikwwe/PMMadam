@@ -694,83 +694,83 @@ function initCakeCandles() {
 const DEFAULT_PHOTOS = [
   {
     file: 'photo1.webp',
-    title: 'The Iconic Deviji 👑',
-    caption: 'Effortless grace, radiant leadership, and pure main character energy.',
-    category: 'boss',
-    date: 'Classic Moment',
-    sticker: '👑 Deviji',
+    title: 'Main Character Energy 🕶️',
+    caption: 'Wind-blown hair, iconic street style, and effortless cool-girl aesthetic. Always owning the moment!',
+    category: 'vibes',
+    date: 'Street Style Icon',
+    sticker: '🌸 Style Queen',
     tilt: '-2.5deg',
     gradient: 'from-pink-600 to-purple-800'
   },
   {
     file: 'photo2.jpeg',
-    title: 'That Room-Lighting Smile ✨',
-    caption: 'The brightest smile that instantly turns any ordinary day into sunshine.',
-    category: 'smile',
-    date: 'Pure Glow',
-    sticker: '✨ Radiant',
-    tilt: '2.5deg',
-    gradient: 'from-amber-500 to-rose-600'
+    title: 'The Corporate Deviji 💼',
+    caption: 'Blazer on, slaying the Honasa hustle like a true boss. Leadership, intellect, and peak elegance in one frame!',
+    category: 'boss',
+    date: 'Honasa Hustle',
+    sticker: '👑 Boss Energy',
+    tilt: '2.2deg',
+    gradient: 'from-purple-600 to-indigo-800'
   },
   {
     file: 'photo3.jpeg',
-    title: 'Unfiltered Laughs & Banter 😂',
-    caption: 'Those stomach-hurting laughs, witty comebacks, and non-stop joy.',
-    category: 'laughs',
-    date: 'Top Tier Banter',
-    sticker: '😂 Pure Joy',
+    title: 'Divine Ethnic Grace 🪷',
+    caption: 'Radiating timeless Indian beauty and royal poise in traditional colors. The true Deviji in all her glory!',
+    category: 'ethnic',
+    date: 'Royal Festive Look',
+    sticker: '🪷 Pure Grace',
     tilt: '-1.8deg',
-    gradient: 'from-purple-600 to-pink-500'
+    gradient: 'from-rose-500 to-amber-600'
   },
   {
     file: 'photo4.jpeg',
-    title: 'Aesthetic Queen 🌸',
-    caption: 'Effortlessly chic, iconic style, and looking stunning as always.',
-    category: 'vibes',
-    date: 'Iconic Look',
-    sticker: '🌸 Main Character',
-    tilt: '3deg',
-    gradient: 'from-rose-500 to-indigo-700'
+    title: 'Sunshine & Good Vibes 🎒',
+    caption: 'Candid laughs, playful Skybags backdrop, and a smile brighter than the summer sun. Pure warmth and positive energy!',
+    category: 'smile',
+    date: 'Grow & Glow Moments',
+    sticker: '☀️ Pure Sunshine',
+    tilt: '2.8deg',
+    gradient: 'from-amber-500 to-pink-600'
   },
   {
     file: 'photo5.webp',
-    title: 'Golden Heart & True Friend 💛',
-    caption: 'The friend who always shows up, listens, and brings unwavering loyalty.',
-    category: 'memories',
-    date: 'One in a Million',
-    sticker: '💛 Pure Gold',
-    tilt: '-2deg',
-    gradient: 'from-yellow-500 to-amber-700'
+    title: 'Snow Queen & Mountain Highs 🏔️',
+    caption: 'Arms wide open in the snowy Himalayas, wind dancing through her hair, living her ultimate Bollywood dream!',
+    category: 'travel',
+    date: 'Mountain Wanderlust',
+    sticker: '🏔️ Snow Queen',
+    tilt: '-2.2deg',
+    gradient: 'from-cyan-600 to-blue-800'
   },
   {
     file: 'photo6.jpeg',
-    title: 'Unstoppable Boss Vibes 🚀',
-    caption: 'Crushing goals, taking charge, and destined for supreme greatness.',
-    category: 'boss',
-    date: 'Future Ruler',
-    sticker: '🚀 Ambition',
-    tilt: '1.5deg',
-    gradient: 'from-blue-600 to-purple-700'
-  },
-  {
-    file: 'photo7.jpg',
-    title: 'Coffee, Talks & Good Vibes ☕',
-    caption: 'Here is to all the unforgettable conversations and good times we treasure.',
-    category: 'memories',
-    date: 'Sweet Moments',
-    sticker: '☕ Cozy Vibes',
-    tilt: '-2.2deg',
-    gradient: 'from-emerald-500 to-teal-800'
-  },
-  {
-    file: 'photo8.jpg',
-    title: 'Birthday Royalty Nimishka 💖',
-    caption: 'May this upcoming year shower you with endless love, peace, and glory!',
+    title: 'Street Style Swag 🔥',
+    caption: 'Fishnet top, three-stripe tracks, and pure unbothered cool. Nobody rocks urban streetwear quite like Deviji!',
     category: 'vibes',
-    date: 'Birthday Special',
-    sticker: '💖 Queen Today',
-    tilt: '2.2deg',
-    gradient: 'from-pink-500 to-rose-700'
+    date: 'Urban Swag',
+    sticker: '🔥 Total Baddie',
+    tilt: '1.8deg',
+    gradient: 'from-slate-700 to-zinc-900'
+  },
+  {
+    file: 'photo7.webp',
+    title: 'Golden Hour Elegance 🌿',
+    caption: 'Vibrant emerald green co-ord, rustic brick aesthetic, and bathed in glowing afternoon sun. Effortlessly photogenic!',
+    category: 'vibes',
+    date: 'Golden Hour Glow',
+    sticker: '🌿 Emerald Glow',
+    tilt: '-2.8deg',
+    gradient: 'from-emerald-600 to-teal-800'
+  },
+  {
+    file: 'photo8.webp',
+    title: 'Snowfall & Pure Serenity ❄️',
+    caption: 'Eyes closed, welcoming the falling snowflakes in the winter woods. A serene, heartwarming moment of pure bliss!',
+    category: 'travel',
+    date: 'Winter Wonderland',
+    sticker: '❄️ Pure Bliss',
+    tilt: '2.4deg',
+    gradient: 'from-blue-500 to-indigo-700'
   }
 ];
 
