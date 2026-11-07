@@ -694,11 +694,11 @@ function initCakeCandles() {
 const DEFAULT_PHOTOS = [
   {
     file: 'photo1.webp',
-    title: 'The Iconic PM Madam 👑',
+    title: 'The Iconic Deviji 👑',
     caption: 'Effortless grace, radiant leadership, and pure main character energy.',
     category: 'boss',
     date: 'Classic Moment',
-    sticker: '👑 PM Madam',
+    sticker: '👑 Deviji',
     tilt: '-2.5deg',
     gradient: 'from-pink-600 to-purple-800'
   },
@@ -966,7 +966,7 @@ function initImageVault() {
         const newPhoto = {
           dataUrl: event.target.result,
           title: file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ') || 'Special Moment',
-          caption: 'Another golden memory added to celebrate our favorite PM Madam!',
+          caption: 'Another golden memory added to celebrate our favorite Deviji!',
           category: 'memories',
           date: 'Just Added',
           sticker: '💖 New Snapshot',
@@ -1093,12 +1093,12 @@ const QUIZ_QUESTIONS = [
   {
     q: "What is Nimishka's undeniable superpower?",
     options: [
-      { text: "Managing chaos and turning it into pure success (The True PM!)", correct: true },
+      { text: "Managing chaos and turning it into pure success (The True Deviji!)", correct: true },
       { text: "Sleeping for 48 hours straight without a single care", correct: false },
       { text: "Refusing to drink water forever", correct: false },
       { text: "Never laughing at our jokes", correct: false }
     ],
-    praise: "Spot on! That's why everyone looks up to PM Madam! 👑✨"
+    praise: "Spot on! That's why everyone looks up to Deviji! 👑✨"
   },
   {
     q: "If Nimishka is having a busy day, what's guaranteed to fix the mood?",
@@ -1153,7 +1153,7 @@ function renderQuestion() {
         <h3 class="text-2xl font-bold text-gold-gradient font-serif">100% CERTIFIED NIMISHKA FANATIC!</h3>
         <p class="text-pink-200 mt-2 text-base">You passed with flying colors (${quizScore}/${QUIZ_QUESTIONS.length})!</p>
         <div class="p-5 mt-6 rounded-2xl bg-white/5 border border-white/10 text-sm text-gray-300">
-          "Nimishka is officially certified as the brightest star, the sweetest confidante, and the most iconic PM Madam in the entire cosmos."
+          "Nimishka is officially certified as the brightest star, the sweetest confidante, and the most iconic Deviji in the entire cosmos."
         </div>
         <button id="quiz-replay-btn" class="pill-btn primary mt-6">Play Again ↺</button>
       </div>

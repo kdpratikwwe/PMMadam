@@ -1,7 +1,7 @@
 # 👑 Nimishka's Birthday Extravaganza ✨
 
 > **"जन्मदिनमिदम् अयि प्रिय सखे | शं तनोतु ते सर्वदा मुदम् ॥"**  
-> An advanced, interactive, and luxurious birthday celebration web experience created especially for **Nimishka ("PM Madam")**.
+> An advanced, interactive, and luxurious birthday celebration web experience created especially for **Nimishka ("Deviji")**.
 
 ---
 
