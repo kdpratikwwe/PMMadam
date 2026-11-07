@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>जन्मदिनमिदम् अयि प्रिय Nimishka! ✨ The Celebration Edition</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Google Fonts & Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="selection:bg-pink-500 selection:text-white">
+
+  <!-- Ambient Stars & Glow Background Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+  <div class="glow-orb glow-orb-3"></div>
+
+  <!-- ================= WELCOME CURTAIN OVERLAY ================= -->
+  <div id="welcome-curtain">
+    <div class="curtain-envelope">
+      <div class="envelope-stamp curtain-unlock-trigger cursor-pointer" id="curtain-unlock-stamp" title="Click to open!">
+        🎁
+      </div>
+      <span class="inline-block px-4 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm font-semibold mb-3 font-hindi">जन्मदिनमिदम् अयि प्रिय ✨</span>
+      <h2 class="text-3xl font-serif font-bold text-white mb-2">For Nimishka ✨</h2>
+      <p class="text-gray-300 text-sm mb-6">A magical birthday surprise crafted exclusively for you, PM Madam!</p>
+      <button id="curtain-unlock-btn" class="curtain-unlock-trigger pill-btn primary w-full justify-center text-base py-3 shadow-lg">
+        Tap to Unlock the Magic 🪄✨
+      </button>
+      <p class="text-xs text-pink-300/80 mt-4 italic font-hindi">गीतं श्रोतुं ध्वनिं उद्घाटयन्तु (Turn up sound for Sanskrit Birthday Song 🎵)</p>
+    </div>
+  </div>
+
+  <!-- ================= NAVIGATION BAR ================= -->
+  <nav class="navbar">
+    <a href="#" class="font-serif font-bold text-lg md:text-xl text-gradient tracking-wide">
+      Nimishka ✨ <span class="text-xs uppercase tracking-widest text-pink-300 font-sans ml-1 font-semibold">Special Edition</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#celebration" class="nav-link">Party Mode</a></li>
+      <li><a href="#cake" class="nav-link">Birthday Cake</a></li>
+      <li><a href="#memories" class="nav-link">Photo Vault</a></li>
+      <li><a href="#reasons" class="nav-link">Why You're Special</a></li>
+      <li><a href="#gift" class="nav-link">Unbox Gift</a></li>
+      <li><a href="#scratch" class="nav-link">Secret Wish</a></li>
+      <li><a href="#quiz" class="nav-link">Trivia Quiz</a></li>
+      <li><a href="#letter" class="nav-link">Heartfelt Letter</a></li>
+      <li><a href="#fireworks" class="nav-link">Sky Fireworks</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="music-toggle-btn" class="pill-btn" title="Toggle Sanskrit Birthday Song (जन्मदिनमिदम् अयि प्रिय)">
+        <span>🎵</span>
+        <span id="music-btn-label" class="hidden sm:inline font-hindi">जन्मदिन गानम्</span>
+      </button>
+      <button id="mobile-menu-toggle" class="md:hidden pill-btn px-2.5 py-1.5 text-base" title="Open Navigation Menu">
+        ☰
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+    <div class="mobile-menu-content">
+      <a href="#celebration" class="mobile-nav-link">🎉 Party Mode</a>
+      <a href="#cake" class="mobile-nav-link">🎂 Birthday Cake</a>
+      <a href="#memories" class="mobile-nav-link">📸 Photo Vault</a>
+      <a href="#reasons" class="mobile-nav-link">💖 Why You're Special</a>
+      <a href="#gift" class="mobile-nav-link">🎁 Unbox Gift</a>
+      <a href="#scratch" class="mobile-nav-link">✨ Secret Scratch Card</a>
+      <a href="#quiz" class="mobile-nav-link">🏆 Trivia Quiz</a>
+      <a href="#letter" class="mobile-nav-link">💌 Heartfelt Letter</a>
+      <a href="#fireworks" class="mobile-nav-link">🎆 Sky Fireworks</a>
+    </div>
+  </div>
+
+  <!-- ================= MAIN WRAPPER ================= -->
+  <div class="site-wrapper">
+
+    <!-- HERO SECTION & CELEBRATION DASHBOARD -->
+    <header id="celebration" class="hero-section px-4">
+      <div class="hero-badge">
+        <span>🎉</span> <span class="font-hindi text-base sm:text-lg">जन्मदिनमिदम् अयि प्रिय!</span> <span>👑</span>
+      </div>
+      
+      <h1 class="hero-title">
+        <span class="font-hindi text-gold-gradient block text-3xl sm:text-5xl md:text-6xl mb-2 font-bold tracking-wide">जन्मदिनमिदम् अयि प्रिय,</span>
+        <span class="text-gradient font-serif">Nimishka!</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        The wait is over—today is all about YOU! To our incredible friend, the life of every moment, and the undisputed <span class="text-pink-300 font-semibold">"PM Madam"</span>. Let the royal celebration begin!
+      </p>
+
+      <!-- Live Birthday Celebration Dashboard -->
+      <div class="countdown-container">
+        <div class="countdown-box">
+          <div id="party-status-val" class="countdown-number text-pink-400">ACTIVE</div>
+          <div class="countdown-label">Party Mode 🥳</div>
+        </div>
+        <div class="countdown-box">
+          <div id="live-time-ticker" class="countdown-number text-gold-gradient">00:00</div>
+          <div class="countdown-label">Celebration Time ⏰</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number text-amber-300">100%</div>
+          <div class="countdown-label">Vibe Level ⚡</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number text-purple-300">∞</div>
+          <div class="countdown-label">Love & Wishes 💖</div>
+        </div>
+      </div>
+      <p id="cd-status-text" class="text-pink-300 font-semibold text-sm md:text-lg mt-2">
+        🎉 <span class="text-gold-gradient font-bold">TODAY IS NIMISHKA DAY! THE UNIVERSE CELEBRATES YOU!</span> 🎂✨
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4 justify-center">
+        <a href="#cake" class="pill-btn primary text-base px-6 py-3">
+          Blow Your Birthday Candles 🎂
+        </a>
+        <a href="#memories" class="pill-btn text-base px-6 py-3">
+          Open Photo Vault 📸
+        </a>
+      </div>
+    </header>
+
+    <!-- SECTION 2: INTERACTIVE CAKE & CANDLE BLOWING -->
+    <section id="cake" class="section">
+      <div class="section-header">
+        <span class="section-tag">Interactive Ritual</span>
+        <h2 class="section-title">Make a Wish & Blow The Candles</h2>
+        <p class="section-desc">Close your eyes, think of the biggest wish in your heart, and tap each candle (or click the button) to blow them out!</p>
+      </div>
+
+      <div class="cake-stage">
+        <div class="cake-wrapper">
+          <!-- Candles Row -->
+          <div class="candles-row">
+            <div class="candle" title="Click to blow!">
+              <div class="candle-wick"></div>
+              <div class="flame"></div>
+            </div>
+            <div class="candle" title="Click to blow!">
+              <div class="candle-wick"></div>
+              <div class="flame"></div>
+            </div>
+            <div class="candle" title="Click to blow!">
+              <div class="candle-wick"></div>
+              <div class="flame"></div>
+            </div>
+          </div>
+
+          <!-- Cake Tiers -->
+          <div class="cake-tier tier-top">
+            <div class="tier-frosting"></div>
+          </div>
+          <div class="cake-tier tier-middle">
+            <div class="tier-frosting"></div>
+          </div>
+          <div class="cake-tier tier-bottom">
+            <div class="tier-frosting"></div>
+          </div>
+          <div class="cake-plate"></div>
+        </div>
+
+        <button id="blow-candles-btn" class="pill-btn primary text-lg px-8 py-3.5 shadow-xl">
+          🌬️ Blow Out All Candles
+        </button>
+
+        <div id="cake-wish-banner" class="mt-8 max-w-lg hidden"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PHOTO MEMORIES VAULT -->
+    <section id="memories" class="section">
+      <div class="section-header">
+        <span class="section-tag">Cherished Snaps</span>
+        <h2 class="section-title">The Nimishka Photo Vault 📸</h2>
+        <p class="section-desc">A retro scrapbook of radiant smiles, aesthetic vibes, hilarious candid moments, and iconic PM Madam memories!</p>
+
+        <!-- Filter Tabs -->
+        <div class="photo-filters mt-6 flex flex-wrap justify-center gap-2">
+          <button class="photo-filter-btn active" data-filter="all">All Photos</button>
+          <button class="photo-filter-btn" data-filter="boss">👑 PM Madam</button>
+          <button class="photo-filter-btn" data-filter="smile">✨ Radiant Smile</button>
+          <button class="photo-filter-btn" data-filter="laughs">😂 Laughs & Banter</button>
+          <button class="photo-filter-btn" data-filter="vibes">🌸 Aesthetic Vibes</button>
+          <button class="photo-filter-btn" data-filter="memories">💛 Core Memories</button>
+        </div>
+
+        <!-- Add Photo Trigger -->
+        <div class="mt-5 flex justify-center">
+          <label class="pill-btn cursor-pointer text-xs py-2 px-5 border border-pink-400/40 hover:border-pink-400 bg-pink-500/10">
+            <span>📷 + Add Personal Photo</span>
+            <input type="file" id="photo-upload-input" accept="image/*" multiple class="hidden">
+          </label>
+        </div>
+      </div>
+
+      <!-- Polaroid Photo Grid -->
+      <div id="photo-grid" class="polaroid-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- SECTION 4: WHY NIMISHKA IS ONE IN A MILLION (3D FLIP CARDS) -->
+    <section id="reasons" class="section">
+      <div class="section-header">
+        <span class="section-tag">Pure Appreciation</span>
+        <h2 class="section-title">Why Nimishka is One in a Million</h2>
+        <p class="section-desc">Hover or tap any card to uncover what makes you so irreplaceable and special to all of us.</p>
+      </div>
+
+      <div class="flip-grid">
+        <!-- Card 1 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-icon">👑</div>
+              <h3 class="text-xl font-bold text-white mb-2">The Ultimate PM Madam</h3>
+              <p class="text-xs text-pink-300 uppercase tracking-widest font-semibold">Hover to reveal</p>
+            </div>
+            <div class="flip-card-back">
+              <h4 class="text-lg font-bold text-gold-gradient mb-2">Natural Born Leader</h4>
+              <p class="text-sm text-gray-200">You handle chaos like absolute royalty. Your knack for keeping things moving and looking fabulous while doing it is unmatched!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-icon">✨</div>
+              <h3 class="text-xl font-bold text-white mb-2">The Contagious Glow</h3>
+              <p class="text-xs text-pink-300 uppercase tracking-widest font-semibold">Hover to reveal</p>
+            </div>
+            <div class="flip-card-back">
+              <h4 class="text-lg font-bold text-gold-gradient mb-2">Room-Lighting Smile</h4>
+              <p class="text-sm text-gray-200">No matter how dull or stressful the day is, your smile and laugh instantly shift the frequency of any room into pure joy.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-icon">💛</div>
+              <h3 class="text-xl font-bold text-white mb-2">Golden Loyalty</h3>
+              <p class="text-xs text-pink-300 uppercase tracking-widest font-semibold">Hover to reveal</p>
+            </div>
+            <div class="flip-card-back">
+              <h4 class="text-lg font-bold text-gold-gradient mb-2">A Friend in a Trillion</h4>
+              <p class="text-sm text-gray-200">When you care about someone, you show up completely. Having you in one’s corner is the greatest superpower a friend could ask for.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-icon">⚡</div>
+              <h3 class="text-xl font-bold text-white mb-2">Unmatched Humor & Chaos</h3>
+              <p class="text-xs text-pink-300 uppercase tracking-widest font-semibold">Hover to reveal</p>
+            </div>
+            <div class="flip-card-back">
+              <h4 class="text-lg font-bold text-gold-gradient mb-2">Top-Tier Banter</h4>
+              <p class="text-sm text-gray-200">The witty comebacks, the spontaneous expressions, and the unfiltered jokes that leave everyone gasping for air from laughing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-icon">🌟</div>
+              <h3 class="text-xl font-bold text-white mb-2">Pure Authenticity</h3>
+              <p class="text-xs text-pink-300 uppercase tracking-widest font-semibold">Hover to reveal</p>
+            </div>
+            <div class="flip-card-back">
+              <h4 class="text-lg font-bold text-gold-gradient mb-2">Unapologetically You</h4>
+              <p class="text-sm text-gray-200">In a world full of pretenses, you stay genuine, honest, grounded, and refreshingly real. That is your greatest superpower.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-icon">🚀</div>
+              <h3 class="text-xl font-bold text-white mb-2">Boundless Potential</h3>
+              <p class="text-xs text-pink-300 uppercase tracking-widest font-semibold">Hover to reveal</p>
+            </div>
+            <div class="flip-card-back">
+              <h4 class="text-lg font-bold text-gold-gradient mb-2">Destined for Greatness</h4>
+              <p class="text-sm text-gray-200">This upcoming year is going to open huge doors for you. Sky is not the limit—it’s just your launchpad!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: VIRTUAL GIFT BOX UNBOXING -->
+    <section id="gift" class="section">
+      <div class="section-header">
+        <span class="section-tag">Birthday Perks</span>
+        <h2 class="section-title">The Virtual Birthday Gift Box</h2>
+        <p class="section-desc">Tap the shimmering 3D gift box below to pop the lid and reveal your VIP birthday privileges!</p>
+      </div>
+
+      <div class="gift-stage">
+        <!-- 3D Gift Box -->
+        <div id="gift-box-trigger" class="gift-box-3d" title="Tap to unwrap!">
+          <div class="gift-base">
+            <div class="gift-ribbon-v"></div>
+            <div class="gift-ribbon-h"></div>
+          </div>
+          <div class="gift-lid">
+            <div class="gift-ribbon-v" style="height: 100%;"></div>
+            <div class="gift-bow">🎀</div>
+          </div>
+        </div>
+        <p class="text-xs text-pink-300 uppercase tracking-widest font-semibold mb-6">Tap the box to open ✨</p>
+
+        <!-- Revealed Digital Coupons -->
+        <div id="gift-coupons" class="gift-coupons-grid">
+          <div class="coupon-card">
+            <div class="text-2xl mb-2">☕🍰</div>
+            <h4 class="font-bold text-gold-gradient text-base mb-1">VIP Treat & Cafe Pass</h4>
+            <p class="text-xs text-gray-300">Redeemable anytime for your favorite coffee, dessert, and zero-stress treat on me!</p>
+            <div class="mt-3 text-[10px] text-pink-300 font-mono tracking-wider uppercase">NO EXPIRY DATE</div>
+          </div>
+
+          <div class="coupon-card">
+            <div class="text-2xl mb-2">🤗💬</div>
+            <h4 class="font-bold text-gold-gradient text-base mb-1">Unlimited Vent & Hugs</h4>
+            <p class="text-xs text-gray-300">24/7 hotline for venting about work, chaos, or sharing wild stories with zero judgment.</p>
+            <div class="mt-3 text-[10px] text-pink-300 font-mono tracking-wider uppercase">VALID LIFETIME</div>
+          </div>
+
+          <div class="coupon-card">
+            <div class="text-2xl mb-2">👑🛋️</div>
+            <h4 class="font-bold text-gold-gradient text-base mb-1">PM Madam Privilege</h4>
+            <p class="text-xs text-gray-300">You automatically win 100% of friendly debates for the next 30 days. No questions asked!</p>
+            <div class="mt-3 text-[10px] text-pink-300 font-mono tracking-wider uppercase">UNRESTRICTED ACCESS</div>
+          </div>
+
+          <div class="coupon-card">
+            <div class="text-2xl mb-2">🎉🥂</div>
+            <h4 class="font-bold text-gold-gradient text-base mb-1">Endless Good Fortune</h4>
+            <p class="text-xs text-gray-300">A promise that the universe will shower you with peace, happiness, and glorious achievements.</p>
+            <div class="mt-3 text-[10px] text-pink-300 font-mono tracking-wider uppercase">INFINITE BLESSINGS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: INTERACTIVE SCRATCH CARD -->
+    <section id="scratch" class="section">
+      <div class="section-header">
+        <span class="section-tag">Confidential</span>
+        <h2 class="section-title">The Secret Birthday Scratch Card</h2>
+        <p class="section-desc">Scratch off the golden sparkle layer below using your mouse or finger to reveal a secret heartfelt message!</p>
+      </div>
+
+      <div class="scratch-container">
+        <div class="scratch-card-box">
+          <div class="scratch-card-content">
+            <span class="text-3xl mb-1">💌✨</span>
+            <h4 class="text-lg font-bold text-gold-gradient font-serif">A Little Secret For You, Nimishka:</h4>
+            <p class="text-xs md:text-sm text-pink-100 mt-2 leading-relaxed font-medium">
+              "Never forget how truly capable, beautiful, and deeply valued you are. You make the world a warmer place just by being in it. Always keep shining!"
+            </p>
+          </div>
+          <canvas id="scratch-canvas"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: BESTIE TRIVIA QUIZ -->
+    <section id="quiz" class="section">
+      <div class="section-header">
+        <span class="section-tag">Interactive Fun</span>
+        <h2 class="section-title">The "How Well Do We Know Nimishka?" Quiz</h2>
+        <p class="section-desc">Test your knowledge with these hilarious and sweet trivia questions!</p>
+      </div>
+
+      <div class="glass-panel quiz-box">
+        <div id="quiz-box-content">
+          <!-- Rendered by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: HEARTFELT BIRTHDAY LETTER -->
+    <section id="letter" class="section">
+      <div class="section-header">
+        <span class="section-tag">From The Heart</span>
+        <h2 class="section-title">A Special Letter For Nimishka</h2>
+        <p class="section-desc">Written with genuine love, gratitude, and highest respect.</p>
+      </div>
+
+      <div class="letter-parchment">
+        <div class="letter-stamp">💌</div>
+        
+        <p class="font-cursive text-3xl text-pink-900 mb-6">Dearest Nimishka,</p>
+        
+        <p class="mb-4 text-stone-800 text-base md:text-lg">
+          On this extraordinary day—your birthday—I wanted to take a moment to celebrate not just another year on the calendar, but the truly wonderful, inspiring human being that you are.
+        </p>
+
+        <p class="mb-4 text-stone-800 text-base md:text-lg">
+          Whether you are leading with elegance as our favorite <strong class="text-pink-950">"PM Madam"</strong>, cracking up the room with spontaneous laughter, or quietly being one of the kindest and most dependable souls around—you bring a genuine warmth that makes everything better.
+        </p>
+
+        <p class="mb-4 text-stone-800 text-base md:text-lg">
+          I hope this new chapter brings you adventures that thrill your spirit, peace that calms your soul, and the kind of overwhelming success you so deeply deserve. May all the love and positivity you give out to the world return to you multiplied a thousandfold.
+        </p>
+
+        <p class="mb-6 text-stone-800 text-base md:text-lg">
+          Thank you for being such an unforgettable friend. May today be filled with cake, laughter, pampering, and memories you'll treasure forever!
+        </p>
+
+        <!-- Traditional Sanskrit Benediction -->
+        <div class="my-6 p-4 rounded-xl bg-amber-100/80 border border-amber-300/80 text-center font-hindi shadow-sm">
+          <p class="text-xl md:text-2xl text-amber-950 font-bold mb-1">"शं तनोतु ते सर्वदा मुदम् । जीवनं तव भवतु सार्थकम् ॥"</p>
+          <p class="text-xs text-amber-800 italic font-sans">May divine grace bring you eternal joy, and may every step of your life be truly fulfilled!</p>
+        </div>
+
+        <div class="text-right mt-8 pt-4 border-t border-amber-900/20">
+          <p class="font-cursive text-2xl text-pink-900 font-bold">With warmest wishes & respect,</p>
+          <p class="font-serif text-base text-stone-700 italic mt-1">Your close friend & squad ✨</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: INTERACTIVE FIREWORKS LAUNCHPAD -->
+    <section id="fireworks" class="section">
+      <div class="section-header">
+        <span class="section-tag">Grand Finale Spectacle</span>
+        <h2 class="section-title">Light Up The Sky For Nimishka 🎆</h2>
+        <p class="section-desc">Tap or click anywhere in the night sky to shoot custom fireworks, or launch the grand choreographed letter show!</p>
+
+        <!-- Controls Bar -->
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <button id="launch-nimishka-show-btn" class="pill-btn primary text-sm py-2.5 px-6 shadow-xl">
+            ✨ Launch "NIMISHKA" Sky Show
+          </button>
+          <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-xs">
+            <span class="text-gray-400">Effect:</span>
+            <select id="firework-type-select" class="bg-transparent text-pink-300 font-semibold focus:outline-none cursor-pointer">
+              <option value="heart" class="bg-gray-900 text-white">💖 Glowing Hearts</option>
+              <option value="sparkle" class="bg-gray-900 text-white" selected>✨ Stardust Explosion</option>
+              <option value="crown" class="bg-gray-900 text-white">👑 Golden Crown</option>
+              <option value="ring" class="bg-gray-900 text-white">🪐 Saturn Rings</option>
+            </select>
+          </div>
+          <button id="auto-fireworks-toggle" class="pill-btn text-xs py-2 px-4">
+            <span id="auto-fireworks-label">🎆 Continuous Show: OFF</span>
+          </button>
+        </div>
+        <p class="text-[11px] text-pink-300/80 mt-2 font-mono">Tip: Tap or drag across the sky to launch fireworks!</p>
+      </div>
+
+      <!-- Fireworks Canvas Stage -->
+      <div class="fireworks-stage-box" id="fireworks-stage">
+        <canvas id="fireworks-canvas"></canvas>
+        <div class="fireworks-skyline"></div>
+        <div id="sky-letter-display" class="sky-letter-display"></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 text-center text-gray-500 text-xs border-t border-white/10 mt-16">
+      <p>Crafted with ❤️ especially for <span class="text-pink-400 font-semibold">Nimishka</span> on her Birthday ✨</p>
+      <p class="mt-1">All memories, photographs, and wishes preserved with care.</p>
+    </footer>
+
+  </div>
+
+  <!-- ================= PHOTO LIGHTBOX MODAL ================= -->
+  <div id="photo-modal" class="photo-modal">
+    <div class="photo-modal-box">
+      <button id="photo-modal-close" class="modal-close-btn" title="Close lightbox">✕</button>
+      <div class="photo-modal-img-wrapper">
+        <img id="modal-photo-img" src="" alt="Enlarged photo" class="photo-modal-img">
+        <div id="modal-photo-placeholder" class="photo-modal-placeholder hidden"></div>
+      </div>
+      <div class="photo-modal-footer">
+        <div class="text-left pr-4">
+          <div id="modal-photo-badge" class="inline-block text-[11px] font-bold text-pink-400 uppercase tracking-wider mb-1"></div>
+          <h4 id="modal-photo-title" class="text-white font-bold text-base md:text-lg font-serif"></h4>
+          <p id="modal-photo-desc" class="text-gray-300 text-xs md:text-sm mt-1"></p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="photo-prev-btn" class="pill-btn py-1 px-3 text-xs" title="Previous photo">❮</button>
+          <button id="photo-next-btn" class="pill-btn py-1 px-3 text-xs" title="Next photo">❯</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FLOATING ACTION BUTTONS ================= -->
+  <!-- Party Popper Button -->
+  <button id="fab-popper" class="fab-popper" title="Click for Party Confetti!">
+    🎉
+  </button>
+
+  <!-- Floating Music Toggle -->
+  <button id="fab-music" class="fab-music" title="Toggle Sanskrit Birthday Song">
+    <span>🎵</span>
+    <span class="text-xs font-hindi">गानम्</span>
+    <div class="music-waves">
+      <div class="music-bar"></div>
+      <div class="music-bar"></div>
+      <div class="music-bar"></div>
+    </div>
+  </button>
+
+  <!-- Sanskrit Birthday Song Lyrics Karaoke Floating Card -->
+  <div id="sanskrit-lyrics-banner" class="sanskrit-lyrics-banner hidden">
+    <div class="sanskrit-banner-content">
+      <div class="sanskrit-banner-badge">
+        <div class="flex items-center gap-1.5">
+          <span class="pulse-dot"></span>
+          <span class="font-hindi text-gold-gradient font-bold text-xs tracking-wider">संस्कृत जन्मदिन गानम् 🎶</span>
+        </div>
+        <button id="close-lyrics-btn" class="lyrics-close-btn" title="Dismiss lyrics">✕</button>
+      </div>
+      <div id="sanskrit-lyric-hindi" class="sanskrit-lyric-hindi font-hindi">जन्मदिनमिदम् अयि प्रिय सखे</div>
+      <div id="sanskrit-lyric-meaning" class="sanskrit-lyric-meaning">O beloved friend Nimishka, may this birthday bring you infinite joy!</div>
+    </div>
+  </div>
+
+  <!-- Audio Element Fallback (Plays local MP3 if added by user) -->
+  <audio id="sanskrit-audio" preload="auto">
+    <source src="sanskrit_birthday_song.mp3" type="audio/mpeg">
+    <source src="birthday_song.mp3" type="audio/mpeg">
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Interactive Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
