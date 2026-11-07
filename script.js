@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initImageVault();
   initScratchCard();
   initGiftBox();
-  initQuiz();
   initFireworksLaunchpad();
   initPopperAndBalloons();
   initCurtain();
