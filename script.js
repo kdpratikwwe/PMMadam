@@ -829,7 +829,7 @@ function initImageVault() {
       grid.innerHTML = `
         <div class="col-span-full text-center py-12 text-gray-400">
           <p class="text-3xl mb-2">📸</p>
-          <p>No photos in this category yet. Click "+ Add Personal Photo" to add one!</p>
+          <p>No photos found in this category.</p>
         </div>
       `;
       return;
