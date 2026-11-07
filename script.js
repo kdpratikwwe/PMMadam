@@ -418,7 +418,7 @@ function startMusicLoop() {
   updateMusicUI(true);
   showSanskritLyricsBanner();
 
-  // 1. Try local audio file if provided by user
+  // 1. Play authentic audio track if available
   if (!audioElem) {
     audioElem = document.getElementById('sanskrit-audio');
     if (audioElem) {
@@ -437,14 +437,16 @@ function startMusicLoop() {
     }
   }
 
-  if (audioElem && audioElem.currentSrc) {
+  if (audioElem) {
+    if (!audioElem.src || audioElem.src === window.location.href) {
+      audioElem.src = 'sanskrit_birthday_song.mp3';
+    }
     const playPromise = audioElem.play();
     if (playPromise !== undefined) {
       playPromise.then(() => {
         isAudioElemPlaying = true;
-        return;
-      }).catch(() => {
-        // Fall back to built-in Web Audio API synthesizer
+      }).catch((err) => {
+        console.warn("Audio element error, falling back to flute synthesizer:", err);
         isAudioElemPlaying = false;
         startSynthesizerMelody();
       });
@@ -452,7 +454,7 @@ function startMusicLoop() {
     }
   }
 
-  // 2. Built-in Web Audio API Sanskrit Bansuri synthesis
+  // 2. Built-in Web Audio API Sanskrit Bansuri synthesis fallback
   startSynthesizerMelody();
 }
 
