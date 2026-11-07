@@ -421,7 +421,12 @@ function startMusicLoop() {
   // 1. Play authentic audio track if available
   if (!audioElem) {
     audioElem = document.getElementById('sanskrit-audio');
-    if (audioElem) {
+  }
+
+  if (audioElem) {
+    audioElem.volume = 1.0;
+    if (!audioElem.dataset.setup) {
+      audioElem.dataset.setup = 'true';
       audioElem.addEventListener('ended', () => {
         if (isMusicPlaying) {
           audioElem.currentTime = 0;
@@ -435,12 +440,7 @@ function startMusicLoop() {
         updateSanskritLyrics(vIdx);
       });
     }
-  }
 
-  if (audioElem) {
-    if (!audioElem.src || audioElem.src === window.location.href) {
-      audioElem.src = 'sanskrit_birthday_song.mp3';
-    }
     const playPromise = audioElem.play();
     if (playPromise !== undefined) {
       playPromise.then(() => {
