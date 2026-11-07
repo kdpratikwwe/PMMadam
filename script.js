@@ -693,7 +693,7 @@ function initCakeCandles() {
 /* ================= 6. POLAROID PHOTO MEMORIES VAULT & LIGHTBOX ================= */
 const DEFAULT_PHOTOS = [
   {
-    file: 'photo1.jpg',
+    file: 'photo1.webp',
     title: 'The Iconic PM Madam 👑',
     caption: 'Effortless grace, radiant leadership, and pure main character energy.',
     category: 'boss',
@@ -703,7 +703,7 @@ const DEFAULT_PHOTOS = [
     gradient: 'from-pink-600 to-purple-800'
   },
   {
-    file: 'photo2.jpg',
+    file: 'photo2.jpeg',
     title: 'That Room-Lighting Smile ✨',
     caption: 'The brightest smile that instantly turns any ordinary day into sunshine.',
     category: 'smile',
@@ -713,7 +713,7 @@ const DEFAULT_PHOTOS = [
     gradient: 'from-amber-500 to-rose-600'
   },
   {
-    file: 'photo3.jpg',
+    file: 'photo3.jpeg',
     title: 'Unfiltered Laughs & Banter 😂',
     caption: 'Those stomach-hurting laughs, witty comebacks, and non-stop joy.',
     category: 'laughs',
@@ -723,7 +723,7 @@ const DEFAULT_PHOTOS = [
     gradient: 'from-purple-600 to-pink-500'
   },
   {
-    file: 'photo4.jpg',
+    file: 'photo4.jpeg',
     title: 'Aesthetic Queen 🌸',
     caption: 'Effortlessly chic, iconic style, and looking stunning as always.',
     category: 'vibes',
@@ -733,7 +733,7 @@ const DEFAULT_PHOTOS = [
     gradient: 'from-rose-500 to-indigo-700'
   },
   {
-    file: 'photo5.jpg',
+    file: 'photo5.webp',
     title: 'Golden Heart & True Friend 💛',
     caption: 'The friend who always shows up, listens, and brings unwavering loyalty.',
     category: 'memories',
@@ -743,7 +743,7 @@ const DEFAULT_PHOTOS = [
     gradient: 'from-yellow-500 to-amber-700'
   },
   {
-    file: 'photo6.jpg',
+    file: 'photo6.jpeg',
     title: 'Unstoppable Boss Vibes 🚀',
     caption: 'Crushing goals, taking charge, and destined for supreme greatness.',
     category: 'boss',
