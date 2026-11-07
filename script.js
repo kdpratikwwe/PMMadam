@@ -803,6 +803,25 @@ function initImageVault() {
     }
   } catch (e) {}
 
+  window.handlePolaroidImgError = function(img) {
+    const original = img.dataset.original;
+    if (!original) {
+      img.classList.add('hidden');
+      if (img.nextElementSibling) img.nextElementSibling.classList.remove('hidden');
+      return;
+    }
+    let step = parseInt(img.dataset.extStep || '0', 10);
+    const base = original.replace(/\.[^/.]+$/, '');
+    const extensions = ['.png', '.jpeg', '.webp', '.PNG', '.JPG', '.JPEG'];
+    if (step < extensions.length) {
+      img.dataset.extStep = (step + 1).toString();
+      img.src = base + extensions[step];
+    } else {
+      img.classList.add('hidden');
+      if (img.nextElementSibling) img.nextElementSibling.classList.remove('hidden');
+    }
+  };
+
   function renderPhotos() {
     const visiblePhotos = allPhotos.filter(p => currentFilter === 'all' || p.category === currentFilter);
 
@@ -824,7 +843,8 @@ function initImageVault() {
           <div class="polaroid-sticker">${item.sticker}</div>
           <div class="polaroid-img-box">
             <img src="${imgSrc}" alt="${escapeHTML(item.title)}" class="polaroid-img"
-                 onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');">
+                 data-original="${item.file || ''}"
+                 onerror="handlePolaroidImgError(this)">
             <div class="polaroid-art-placeholder bg-gradient-to-br ${item.gradient || 'from-pink-600 to-purple-800'} hidden">
               <span class="text-4xl mb-2">📸✨</span>
               <div class="font-serif font-bold text-sm tracking-wide text-white">${escapeHTML(item.title)}</div>
@@ -871,18 +891,28 @@ function initImageVault() {
 
     const imgSrc = item.dataUrl || item.file;
     modalImg.src = imgSrc;
+    modalImg.dataset.extStep = '0';
     modalImg.classList.remove('hidden');
     modalPlaceholder.classList.add('hidden');
 
     modalImg.onerror = () => {
-      modalImg.classList.add('hidden');
-      modalPlaceholder.className = `photo-modal-placeholder bg-gradient-to-br ${item.gradient || 'from-pink-600 to-purple-800'}`;
-      modalPlaceholder.innerHTML = `
-        <span class="text-6xl mb-4 inline-block">📸✨</span>
-        <h3 class="text-2xl font-bold font-serif text-white mb-2">${escapeHTML(item.title)}</h3>
-        <p class="text-pink-100 text-sm max-w-md mx-auto italic font-medium">"${escapeHTML(item.caption)}"</p>
-      `;
-      modalPlaceholder.classList.remove('hidden');
+      const originalFile = item.file || '';
+      let step = parseInt(modalImg.dataset.extStep || '0', 10);
+      const base = originalFile.replace(/\.[^/.]+$/, '');
+      const extensions = ['.png', '.jpeg', '.webp', '.PNG', '.JPG', '.JPEG'];
+      if (!imgSrc.startsWith('data:') && step < extensions.length) {
+        modalImg.dataset.extStep = (step + 1).toString();
+        modalImg.src = base + extensions[step];
+      } else {
+        modalImg.classList.add('hidden');
+        modalPlaceholder.className = `photo-modal-placeholder bg-gradient-to-br ${item.gradient || 'from-pink-600 to-purple-800'}`;
+        modalPlaceholder.innerHTML = `
+          <span class="text-6xl mb-4 inline-block">📸✨</span>
+          <h3 class="text-2xl font-bold font-serif text-white mb-2">${escapeHTML(item.title)}</h3>
+          <p class="text-pink-100 text-sm max-w-md mx-auto italic font-medium">"${escapeHTML(item.caption)}"</p>
+        `;
+        modalPlaceholder.classList.remove('hidden');
+      }
     };
 
     modal.classList.add('active');
